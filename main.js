@@ -1,38 +1,38 @@
 const quotes = [
     {
         id:1,
-        content:"Try to be a rainbow in someone else’s cloud.",
-        author:"Maya Angelou"
+        content:"To live is the rarest thing in the world. Most people exist, that is all.",
+        author:"_Maya Angelou"
     },
     {
         id:2,
         content:"Happiness is not by chance but by choice.",
-        author:" Jim Rohn"
+        author:"_Jim Rohn"
     },
     {
         id:3,
         content:"Extraordinary things are always hiding in places people never think to look.",
-        author:"Jodi Picoult"
+        author:"_Jodi Picoult"
     },
     {
         id:4,
         content:"Learn as if you will live forever, live like you will die tomorrow.",
-        author:"Mahatma Gandhi"
+        author:"_Mahatma Gandhi"
     },
     {
         id:5,
         content:"When you change your thoughts, remember to also change your world.",
-        author:"Norman Vincent Peale"
+        author:"_Norman Vincent Peale"
     },
     {
         id:6,
         content:"Success is not final; failure is not fatal: It is the courage to continue that counts.",
-        author:"Winston Churchill"
+        author:"_Winston Churchill"
     },
     {
         id:7,
         content:"The road to success and the road to failure are almost exactly the same.",
-        author:"Colin R. Davis"
+        author:"_Colin R. Davis"
     },
 ]
 
@@ -72,40 +72,34 @@ const images = [
         alt: "Placeholder Image 200x200",
         title: "Image 7"
     },
-   
-  
 
 ]
-
-
-
 
 let button = document.querySelector("#button")
 let quote = document.getElementById("quote")
 let authors = document.getElementById("authors")
 let imgsec = document.querySelector(".image-section")
 let imgdemo = document.getElementById("imgdemo")
-let read = document.getElementById("readquote")
-
 
 imgsec.appendChild(imgdemo)
 
-
-
 const changeQuotes = () => {
+    const icon = document.createElement('i')
+    const icon1 = document.createElement('i')
+    icon.className ="fa-solid fa-quote-left"
+    icon1.className = "fa-solid fa-quote-right"
+
     let random  = Math.floor(Math.random() * 7)
-    quote.innerText = quotes[random].content
+    quote.innerHTML = `   <i class="fa-solid fa-quote-left"></i> ${quotes[random].content}    <i class="fa-solid fa-quote-right"></i> `
    
     let randomImage = Math.floor(Math.random() * images.length);
-    
+   
     authors.innerText = quotes[random].author
+ 
     const selectedImage = images[randomImage]
    imgdemo.src = selectedImage.url
    imgdemo.alt = selectedImage.alt || "Image";
-    
-    
-   
-    
+ 
 }
 
 
@@ -114,4 +108,4 @@ button.addEventListener("click",changeQuotes)
 
 
 
-read.addEventListener("click",speakQuote)
+
